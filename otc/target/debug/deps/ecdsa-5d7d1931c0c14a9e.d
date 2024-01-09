@@ -1,0 +1,12 @@
+/Users/nseguias/dev/astroport/otc/target/debug/deps/ecdsa-5d7d1931c0c14a9e.rmeta: /Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.16.9/src/lib.rs /Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.16.9/src/normalized.rs /Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.16.9/src/recovery.rs /Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.16.9/src/der.rs /Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.16.9/src/hazmat.rs /Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.16.9/src/signing.rs /Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.16.9/src/verifying.rs /Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.16.9/src/../README.md
+
+/Users/nseguias/dev/astroport/otc/target/debug/deps/ecdsa-5d7d1931c0c14a9e.d: /Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.16.9/src/lib.rs /Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.16.9/src/normalized.rs /Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.16.9/src/recovery.rs /Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.16.9/src/der.rs /Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.16.9/src/hazmat.rs /Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.16.9/src/signing.rs /Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.16.9/src/verifying.rs /Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.16.9/src/../README.md
+
+/Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.16.9/src/lib.rs:
+/Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.16.9/src/normalized.rs:
+/Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.16.9/src/recovery.rs:
+/Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.16.9/src/der.rs:
+/Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.16.9/src/hazmat.rs:
+/Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.16.9/src/signing.rs:
+/Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.16.9/src/verifying.rs:
+/Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ecdsa-0.16.9/src/../README.md:

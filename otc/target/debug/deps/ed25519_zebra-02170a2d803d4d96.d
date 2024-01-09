@@ -1,0 +1,10 @@
+/Users/nseguias/dev/astroport/otc/target/debug/deps/ed25519_zebra-02170a2d803d4d96.rmeta: /Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ed25519-zebra-2.2.0/src/lib.rs /Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ed25519-zebra-2.2.0/src/batch.rs /Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ed25519-zebra-2.2.0/src/error.rs /Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ed25519-zebra-2.2.0/src/signature.rs /Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ed25519-zebra-2.2.0/src/signing_key.rs /Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ed25519-zebra-2.2.0/src/verification_key.rs
+
+/Users/nseguias/dev/astroport/otc/target/debug/deps/ed25519_zebra-02170a2d803d4d96.d: /Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ed25519-zebra-2.2.0/src/lib.rs /Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ed25519-zebra-2.2.0/src/batch.rs /Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ed25519-zebra-2.2.0/src/error.rs /Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ed25519-zebra-2.2.0/src/signature.rs /Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ed25519-zebra-2.2.0/src/signing_key.rs /Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ed25519-zebra-2.2.0/src/verification_key.rs
+
+/Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ed25519-zebra-2.2.0/src/lib.rs:
+/Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ed25519-zebra-2.2.0/src/batch.rs:
+/Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ed25519-zebra-2.2.0/src/error.rs:
+/Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ed25519-zebra-2.2.0/src/signature.rs:
+/Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ed25519-zebra-2.2.0/src/signing_key.rs:
+/Users/nseguias/.cargo/registry/src/index.crates.io-6f17d22bba15001f/ed25519-zebra-2.2.0/src/verification_key.rs:
