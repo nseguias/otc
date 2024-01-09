@@ -36,12 +36,16 @@ Chat soon!
 
 ## Improvements
 
-(2) The create_deal function also has an optional recipient
-(4) When both sides have deposited their tokens, the contract sends funds to both parties at the same time (no need to manually withdraw)
-(6) An optional timeout is required on deal creation (if None set, the default timeout is used -> set on instantiation)
-(\*) Update deal status from Open to Expired when time's up
+(2) The create_deal function also has an optional recipient.
+
+(4) When both sides have deposited their tokens, the contract sends funds to both parties at the same time (no need to manually withdraw).
+
+(6) An optional timeout is required on deal creation (if None set, the default timeout is used -> set on instantiation).
+
+(\*) Update deal status from Open to Expired when time's up.
 
 ## Assumptions
 
 (1) An OTC deal is a simple swap, regardless of the direction. Meaning, buy A with B is the same as selling B for A. A deal cannot be created without sending funds.
+
 (5) The creator of the deal can withdraw their funds at any time -> no rug possible as the contract sends (denom_out / amount_out) tokens to receiver as soon as they deposit
