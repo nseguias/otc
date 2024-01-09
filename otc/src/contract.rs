@@ -2,12 +2,14 @@
 use cosmwasm_std::entry_point;
 
 use crate::error::ContractError;
-use crate::msg::{ExecuteMsg, InstantiateMsg};
+use crate::msg::{ConfigResponse, ExecuteMsg, InstantiateMsg, QueryMsg};
 use crate::state::{Config, Deal, Status, CONFIG, DEALS, LATEST_DEAL_ID};
 
 use cw2::set_contract_version;
 
-use cosmwasm_std::{BankMsg, Coin, DepsMut, Env, MessageInfo, Response, Uint128};
+use cosmwasm_std::{
+    to_json_binary, BankMsg, Binary, Coin, DepsMut, Env, MessageInfo, Response, StdResult, Uint128,
+};
 
 const CONTRACT_NAME: &str = "crates.io:astroport-otc";
 const CONTRACT_VERSION: &str = env!("CARGO_PKG_VERSION");
@@ -63,6 +65,8 @@ pub fn execute(
     }
 }
 
+/// Creates a deal with the given parameters, and will be saved inverted for the recipient to see and accept
+/// TODO: this is a bit confusing as the creator sees the trade as "buying" and the recipient sees it as "selling"
 fn try_create_deal(
     deps: DepsMut,
     env: Env,
@@ -120,6 +124,8 @@ fn try_create_deal(
         .add_attribute("amount_out", amount_out.to_string()))
 }
 
+/// Accepts a deal that has not expired and has not been executed, and returns the funds to the creator.
+/// Note: denom_out and amount_out here are the opposite of the deal's denom_in and amount_in
 fn try_accept_deal(
     deps: DepsMut,
     env: Env,
@@ -141,11 +147,11 @@ fn try_accept_deal(
         return Err(ContractError::DealExpired {});
     }
 
-    if deal.denom_out != denom_out {
+    if deal.denom_in != denom_out {
         return Err(ContractError::InvalidFundsDenom {});
     }
 
-    if deal.amount_out != amount_out {
+    if deal.amount_in != amount_out {
         return Err(ContractError::InvalidFundsAmount {});
     }
 
@@ -248,4 +254,85 @@ fn try_withdraw(
         .add_attribute("action", "withdraw")
         .add_attribute("deal_id", deal_id.to_string())
         .add_message(transfer_msg))
+}
+
+pub fn query(deps: DepsMut, _env: Env, msg: QueryMsg) -> StdResult<Binary> {
+    match msg {
+        QueryMsg::Config {} => to_json_binary(&query_config(deps)?),
+        QueryMsg::Deal { deal_id } => to_json_binary(&query_deal(deps, deal_id)?),
+    }
+}
+
+fn query_config(deps: DepsMut) -> StdResult<ConfigResponse> {
+    let config = CONFIG.load(deps.storage)?;
+    Ok(ConfigResponse {
+        default_timeout: config.default_timeout,
+    })
+}
+
+fn query_deal(deps: DepsMut, deal_id: u64) -> StdResult<Deal> {
+    DEALS.load(deps.storage, deal_id)
+}
+
+#[cfg(test)]
+mod tests {
+    use cosmwasm_std::{
+        attr, coins,
+        testing::{mock_dependencies, mock_env, mock_info},
+    };
+
+    use crate::msg::{ExecuteMsg, InstantiateMsg};
+
+    use super::*;
+
+    #[test]
+    fn create_deal_works() {
+        let env = mock_env();
+        let mut deps = mock_dependencies();
+        let admin = mock_info("bill", &[]);
+
+        let msg = InstantiateMsg {
+            default_timeout: Some(3600),
+        };
+
+        let _ = instantiate(deps.as_mut(), env.clone(), admin.clone(), msg).unwrap();
+
+        let creator = mock_info("nahem", &coins(1000, "astro"));
+
+        let execute_msg = ExecuteMsg::CreateDeal {
+            denom_in: "astro".to_string(),
+            amount_in: Uint128::from(1000u128),
+            denom_out: "uusd".to_string(),
+            amount_out: Uint128::from(500u128),
+            recipient: None,
+            timeout: None,
+        };
+
+        let res = execute(deps.as_mut(), env.clone(), creator.clone(), execute_msg).unwrap();
+        assert_eq!(
+            res.attributes,
+            vec![
+                attr("action", "create_deal"),
+                attr("deal_id", "0"),
+                attr("denom_in", "astro"),
+                attr("amount_in", "1000"),
+                attr("denom_out", "uusd"),
+                attr("amount_out", "500"),
+            ]
+        );
+
+        mock_info("bob", &coins(500, "ussd"));
+        let execute_msg = ExecuteMsg::AcceptDeal {
+            deal_id: 0,
+            denom_out: "astro".to_string(),
+            amount_out: Uint128::from(1000u128),
+        };
+
+        let res = execute(deps.as_mut(), env.clone(), creator.clone(), execute_msg).unwrap();
+        assert_eq!(
+            res.attributes,
+            vec![attr("action", "accept_deal"), attr("deal_id", "0"),]
+        );
+        print!("{:?}", res.messages);
+    }
 }
