@@ -1,4 +1,4 @@
-# Technical interview assignment
+# Technical challenge
 
 In this test you are required to build a simple OTC (over-the-counter) contract. Scammers typically use OTC deals to try and trick sellers with fake tokens to gain whatever they are trying to buy without actually paying. A contract can be used to stop these scammers.
 For this contract there will be two sides, a buyer and a seller. The buyer or seller should be able to create a deal, but neither should have admin rights to change the deal after creation.
